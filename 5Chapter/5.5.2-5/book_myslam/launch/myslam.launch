@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="book_myslam" type="slam_tfpub" name="tf_pub"/>
+    <node pkg="book_myslam" type="slam_laser" name="laser_pub"/>
+    <node pkg="book_myslam" type="book_myslam" name="myslam"/>
+</launch>
