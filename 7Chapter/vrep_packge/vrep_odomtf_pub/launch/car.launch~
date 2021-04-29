@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Use the clock time coming from V-REP, otherwise some generated topics will be outdated as V-REP time is different from the normal timestamp -->
+    <param name="use_sim_time" value="true" />
+
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" args="scan:=scan" output="screen"/>
+		<node pkg="vrep_odomtf_pub" type="vrep_odomtf_pub" name="odom2base_tf" output="screen"/>
+		<node pkg="tf" type="static_transform_publisher" name="laser2base_tf" args="0.2 0 0.07 0 0 0 1 /base_link /laser_link 100" output="screen"/>
+</launch>
